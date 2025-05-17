@@ -1,0 +1,179 @@
+/* 全体設定 */
+body {
+  font-family: 'Kiwi Maru', serif; /* フォントはGoogle Fontsからインポート */
+  margin: 0;                       /* マージンをリセット */
+  padding: 0;                      /* 余白をリセット */
+  background: #f0f4f8;           /* 背景色 */
+  color: #000000;                   /* 文字色 */
+  display: flex;                   /* フレックスボックスで中央寄せ */
+  flex-direction: column;          /* 縦並び */
+  align-items: center;             /* 中央寄せ */
+  min-height: 200vh;  /* ページを3画面分の高さにする（必要ならもっと増やしてOK） */
+  background-image: url('bg-strata.jpg'); /* 背景画像 */
+  background-repeat: no-repeat;    /* 繰り返さない */
+  background-position: top center; /* 上中央に配置 */
+  background-size: auto 300vh;     /* 縦を画面3つ分の高さに合わせる */
+  background-attachment: scroll;   /* スクロール時に背景が動くようにする */
+}
+
+/* アニメーション */
+.fade-in {
+  opacity: 0; /* 初期非表示 */
+  transform: translateY(30px); /* 下から上に */
+  animation: fadeInUp 1.5s ease forwards; /* 1.5秒で上に移動しながら表示 */
+}
+
+@keyframes fadeInUp {   
+  to {
+    opacity: 1; /* 完全表示 */
+    transform: translateY(0); /* 元の位置に戻る */
+  }
+}
+
+/* ヘッダー */
+header {
+  text-align: center;      /* 中央寄せ */
+  margin: 2rem 1rem 1rem;  /* 上下のマージン */
+}
+
+h1 {
+  font-size: 2.5rem;       /* タイトルのフォントサイズ */
+  margin-bottom: 0.5rem;   /* タイトルの下のマージン */
+}
+
+p {
+  font-size: 1.1rem;      /* 説明文のフォントサイズ */
+  color: #ffffff;          /* 説明文の色 */
+}
+
+/* ボタングリッド */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* ナビゲーションボタン */
+.nav-button {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-button img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-button:hover img {
+  transform: scale(1.2);
+}
+
+.nav-button span {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* フッター */
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* 恐竜カードの横並びレイアウト */
+.dino-card {
+  display: flex;
+  flex-direction: row; /* 横並び！ */
+  justify-content: center; /* 文字を中央に */
+  align-items: center; /* 画像と文字を中央に */
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;                /* 初期非表示 */
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* カード内の画像と文字のレイアウト */
+.dino-card img {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+.dino-card span {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ホバー時のエフェクト */
+.dino-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* アニメーション（順番にふわっと出る） */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.fade-in:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.fade-in:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffffffcc;
+  color: #333;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+.back-to-top img {
+  width: 20px;
+  height: 20px;
+}
+.back-to-top:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
